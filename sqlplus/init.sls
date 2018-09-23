@@ -42,6 +42,7 @@ sqlplus-extract-{{ pkg }}:
     - source: file://{{ sqlplus.tmpdir }}{{ pkg }}.{{sqlplus.dl.suffix}}
     - name: '{{ sqlplus.prefix }}'
     - archive_format: {{ sqlplus.dl.archive_type }}
+    - trim_output: True
         {% if grains['saltversioninfo'] < [2016, 11, 0] %}
     - if_missing: '{{ sqlplus.oracle.realcmd }}'
         {% endif %}
